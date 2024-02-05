@@ -1,27 +1,22 @@
-# config:
-#      client:
-#         name: customer-management-service, account-management-service
 server:
   port: 9090
-
 spring:
-  cloud:
-    gateway:
-      discovery:
-        locator:
-          enabled: true
-#  cloud:
-#    gateway:
-#      routes:
-#        - id: ACCOUNT-MANAGEMENT-SERVICE
-#          uri: lb://ACCOUNT-MANAGEMENT-SERVICE
-#          predicates:
-#            - Path=/api/account/**
-#        - id: CUSTOMER-MANAGEMENT-SERVICE
-#          uri: lb://CUSTOMER-MANAGEMENT-SERVICE
-#          predicates:
-#            - Path=/api/customer/**
-
+  # cloud:
+  #   gateway:
+  #     discovery:
+  #       locator:
+  #         enabled: true
+    cloud:
+      gateway:
+        routes:
+          - id: ACCOUNT-MANAGEMENT-SERVICE
+          uri: lb://ACCOUNT-MANAGEMENT-SERVICE
+          predicates:
+            - Path=/api/account/**
+          - id: CUSTOMER-MANAGEMENT-SERVICE
+          uri: lb://CUSTOMER-MANAGEMENT-SERVICE
+          predicates:
+            - Path=/api/customer/**
 eureka:
   client:
     serviceUrl:
