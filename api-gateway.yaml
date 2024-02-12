@@ -13,6 +13,13 @@ spring:
          uri: lb://CUSTOMER-MANAGEMENT-SERVICE
          predicates:
            - Path=/api/customer/**
+     fallbacks:
+        - uri: forward:/fallback/customer
+          predicates:
+            - Path=/fallback/customer/**
+        - uri: forward:/fallback/account
+          predicates:
+            - Path=/fallback/account/**
            
 eureka:
  client:
