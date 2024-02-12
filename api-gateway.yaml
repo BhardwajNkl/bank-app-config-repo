@@ -2,13 +2,6 @@ server:
  port: 9090
 
 spring:
- application:
-   name: api-gateway
-#  cloud:
-#    gateway:
-#      discovery:
-#        locator:
-#          enabled: true
  cloud:
    gateway:
      routes:
@@ -20,8 +13,7 @@ spring:
          uri: lb://CUSTOMER-MANAGEMENT-SERVICE
          predicates:
            - Path=/api/customer/**
-
-
+           
 eureka:
  client:
    serviceUrl:
