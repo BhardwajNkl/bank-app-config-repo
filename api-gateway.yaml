@@ -1,24 +1,18 @@
 server:
  port: 9090
+
 spring:
-  cloud:
-    gateway:
-      routes:
-        - id: ACCOUNT-MANAGEMENT-SERVICE
-          uri: lb://ACCOUNT-MANAGEMENT-SERVICE
-          predicates:
-            - Path=/api/account/**
-        - id: CUSTOMER-MANAGEMENT-SERVICE
-          uri: lb://CUSTOMER-MANAGEMENT-SERVICE
-          predicates:
-            - Path=/api/customer/**
-      fallbacks:
-        - uri: forward:/fallback/customer
-          predicates:
-            - Path=/api/customer/**
-        - uri: forward:/fallback/account
-          predicates:
-            - Path=/api/account/**
+ cloud:
+   gateway:
+     routes:
+       - id: ACCOUNT-MANAGEMENT-SERVICE
+         uri: lb://ACCOUNT-MANAGEMENT-SERVICE
+         predicates:
+           - Path=/api/account/**
+       - id: CUSTOMER-MANAGEMENT-SERVICE
+         uri: lb://CUSTOMER-MANAGEMENT-SERVICE
+         predicates:
+           - Path=/api/customer/**
            
 eureka:
  client:
