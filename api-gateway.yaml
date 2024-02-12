@@ -16,10 +16,10 @@ spring:
      fallbacks:
         - uri: forward:/fallback/customer
           predicates:
-            - Path=/fallback/api/customer/**
+            - Path=/api/customer/**
         - uri: forward:/fallback/account
           predicates:
-            - Path=/fallback/api/account/**
+            - Path=/api/account/**
            
 eureka:
  client:
